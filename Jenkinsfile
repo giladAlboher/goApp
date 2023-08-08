@@ -1,8 +1,11 @@
 pipeline {
     agent any
-    tool{
+
+    tools{
         go 'go'
     } // This assumes you have a Go installation called "go-1.12.7"
+    }
+   
     stages {
         stage('Checkout') {
             steps {
