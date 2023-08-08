@@ -1,6 +1,8 @@
 pipeline {
     agent any
-    tool(go: 'go-1.12.7') // This assumes you have a Go installation called "go-1.12.7"
+    tool{
+        go 'go'
+    } // This assumes you have a Go installation called "go-1.12.7"
     stages {
         stage('Checkout') {
             steps {
@@ -11,7 +13,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'go run main.go'
+                    sh 'go build'
                 }
             }
         }
@@ -19,18 +21,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh 'go test ./...'
-                }
-            }
-        }
-        
-        stage('Deploy') {
-            steps {
-                script {
-                    // Assuming you have some deployment steps here
-                    // like copying the binary to a server or container
-                    // and starting the application
-                    sh './helloWorldApp'
+                    sh 'go test'
                 }
             }
         }
