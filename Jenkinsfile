@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'go build'
+                    sh 'go run main.go'
                 }
             }
         }
