@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    tool(go: 'go-1.12.7') // This assumes you have a Go installation called "go-1.12.7"
     stages {
         stage('Checkout') {
             steps {
