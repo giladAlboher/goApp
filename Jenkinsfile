@@ -13,10 +13,14 @@ pipeline {
             }
         }
 
-        stage('only works with branch dev'){
-            echo(message: 'This stage only works with branch dev', color: 'RED')
+        stage('dev'){
             when {
                 branch 'dev'
+            }
+            steps {
+                script {
+                    echo('This stage only works with branch dev')
+                }
             }
         }
         
