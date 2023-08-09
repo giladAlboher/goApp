@@ -12,6 +12,13 @@ pipeline {
                 checkout scm
             }
         }
+
+        stage('only works with branch dev'){
+            echo(message: 'This stage only works with branch dev', color: 'RED')
+            when {
+                branch 'dev'
+            }
+        }
         
         stage('Build') {
             steps {
